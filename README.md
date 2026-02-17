@@ -1,69 +1,77 @@
-# CodeIgniter 4 Application Starter
+# Project Management System
 
-## What is CodeIgniter?
+A clean, modern, and production-ready Project Management System designed for single administrators. Built with **CodeIgniter 4** and **Tailwind CSS**.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Features
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- **Simple Authentication**: Secure admin login with session protection.
+- **Client Management**: Full CRUD for managing client companies, contacts, and Indonesian regional locations (API integrated).
+- **Project Tracking**: Manage projects with status tracking (Planning, On Progress, Completed).
+- **Modern Dashboard**: Real-time statistics and recent activities overview.
+- **Indonesian Region API**: Integrated with official province and city data.
+- **Responsive UI**: Fully responsive sidebar layout using Tailwind CSS.
+- **Soft Deletes**: Safety first data management.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Tech Stack
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Framework**: CodeIgniter 4.7.0
+- **Styling**: Tailwind CSS v3
+- **Icons**: Font Awesome 6
+- **Database**: MySQL/MariaDB
+- **API**: emsifa Indonesian Region API
 
-## Installation & updates
+## Getting Started
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### Prerequisites
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- PHP 8.2 or higher
+- Composer
+- Node.js & NPM (for CSS build)
+- MySQL Server
 
-## Setup
+### Installation
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+1. Clone the repository
+2. Install PHP dependencies:
+   ```bash
+   composer install
+   ```
+3. Install NPM dependencies:
+   ```bash
+   npm install
+   ```
+4. Copy `env` to `.env` and configure your database:
+   ```bash
+   cp env .env
+   ```
+5. Run Migrations:
+   ```bash
+   php spark migrate
+   ```
+6. Seed the Admin account:
+   ```bash
+   php spark db:seed AdminSeeder
+   ```
 
-## Important Change with index.php
+### Default Credentials
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+- **Email**: `abed@gmail.com`
+- **Password**: `abed123`
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### Development
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Build and watch CSS changes:
 
-## Repository Management
+```bash
+npm run dev
+```
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Production CSS build:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+```bash
+npm run build
+```
 
-## Server Requirements
+## License
 
-PHP version 8.2 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+This project is open-sourced software licensed under the [MIT license](LICENSE).
